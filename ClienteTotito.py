@@ -11,7 +11,7 @@ class Juego:
         self.gameFinished = False
         self.game_id = 0
         self.player_turn_id = 0
-        self.winnerTurnID = 0
+        self.winner_turn_id = 0
         self.board = []
         #user_role: "player"
 
