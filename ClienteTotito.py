@@ -30,6 +30,7 @@ def on_ready(data):
     juego.gameFinished = False
     juego.game_id = data['game_id']
     juego.player_turn_id = data['player_turn_id']
+    juego.board = data['board']
    
     juego.ready = True
 
