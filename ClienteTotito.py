@@ -12,6 +12,7 @@ class Juego:
         self.game_id = 0
         self.player_turn_id = 0
         self.winnerTurnID = 0
+        self.board = []
         #user_role: "player"
 
 @sio.on('connect')
@@ -36,6 +37,10 @@ def on_ready(data):
 
     direction = random.randint(0, 1)
     position = random.randint(0, 29)
+
+    while int(juego.board[direction][position]) != 99:
+        direction = random.randint(0, 1)
+        position = random.randint(0, 29)
 
     movement = [direction, position]
     print("Movement played: " + str(movement[0]) + ", " + str(movement[1]))
