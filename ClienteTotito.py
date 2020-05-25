@@ -1,3 +1,4 @@
+
 import socketio
 import random
 # standard Python
@@ -12,7 +13,7 @@ class Juego:
         self.game_id = 0
         self.player_turn_id = 0
         self.winner_turn_id = 0
-        self.board = []
+        #self.board = []
         #user_role: "player"
 
 @sio.on('connect')
@@ -30,7 +31,7 @@ def on_ready(data):
     juego.gameFinished = False
     juego.game_id = data['game_id']
     juego.player_turn_id = data['player_turn_id']
-    juego.board = data['board']
+    #juego.board = data['board']
    
     juego.ready = True
 
@@ -39,7 +40,7 @@ def on_ready(data):
     direction = random.randint(0, 1)
     position = random.randint(0, 29)
 
-    while int(juego.board[direction][position]) != 99:
+    while int(data['board'][direction][position]) != 99:
         direction = random.randint(0, 1)
         position = random.randint(0, 29)
 
@@ -79,10 +80,4 @@ juego.tournament_id = int(input("Ingrese el Tournament ID: "))
 host = input("Ingrese el host: ")
 
 sio.connect(host)
-
-
-
-
-
-
 
