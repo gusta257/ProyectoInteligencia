@@ -76,9 +76,8 @@ def on_finish(data):
 # Y DE https://www.youtube.com/watch?v=trKjYdBASyQ
 def minimax(board, move, depth, player_turn_id, alpha, beta, maximizingPlayer):
 
-    #idPlayerPlaying = player_turn_id if maximizingPlayer else (player_turn_id % 2) + 1
     if maximizingPlayer:
-        idPlayerPlaying = player_turn_id
+        idPlayerPlaying = juego.player_turn_id
     else:
         idPlayerPlaying = juego.enemy_turn_id
     
@@ -183,10 +182,10 @@ def heuristica(oldBoard, move, maximizingPlayer):
 #sio.connect('http://localhost:4000')
 
 juego = Juego()
-juego.user_name = "Gusta"#input("Ingrese su usuario: ")
-juego.tournament_id = 12#int(input("Ingrese el Tournament ID: "))
-#host = input("Ingrese el host: ")
+juego.user_name = input("Ingrese su usuario: ")
+juego.tournament_id = int(input("Ingrese el Tournament ID: "))
+host = input("Ingrese el host: ")
 #sio.connect('http://3.17.150.215:9000')
-sio.connect('http://localhost:4000')
-#sio.connect(host)
+#sio.connect('http://localhost:4000')
+sio.connect(host)
 
